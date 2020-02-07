@@ -1,0 +1,16 @@
+{
+  "name": "boomeripsum",
+  "source-directories": [
+    "source"
+  ],
+  "test-directories": [
+    "tests"
+  ],
+  "application": {
+    "title": "Mendoza Says",
+    "orientation": "portrait",
+    "icon": "favicon.ico",
+    "theme-color": "#F8BD1B",
+    "head": "head.html"
+  }
+}
