@@ -54,53 +54,84 @@ component Main {
 
   style base {
     font-family: sans-serif;
-    overflow: hidden;
-    height: 97vh;
   }
   style title {
     width: 100vw;
-    height: 60%;
     background-color: #F8BD1B;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     display: flex;
-  }
-  style header {
-    margin-bottom: 0;
-    color: #2562A1;
-    font-size: 60px;
-  }
-  style subheader {
-    margin-top: 10px;
-    color: #2562A1;
-    letter-spacing: 2px;
+
+    & h1 {
+      margin-bottom: 0;
+      color: #2562A1;
+      font-size: 60px;
+      text-align: center;
+    }
+
+    & h3 {
+      margin-top: 10px;
+      color: #2562A1;
+      letter-spacing: 2px;
+    }
   }
 
   style content {
-    height: 40%;
-    justify-content: center;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px;
     position: relative;
-  }
-  style quote-container{
-    background-color: white;
-    position: absolute;
-    top: -42px;
-    border-radius: 50px;
-    width: 60%;
-  }
-  style quote {
-    text-align: center;
-    padding: 30px 80px;
-    line-height: 2;
+
+    & div {
+      background-color: white;
+      border-radius: 50px;
+      width: 60%;
+      margin-bottom: 50px;
+      padding: 10px 30px;
+
+      &:before { 
+        content: " ";
+        position: absolute;
+        width: 100vw;
+        left: 0;
+        top: -2px;
+        background-color: #F8BD1B;
+        height: 100px;
+        z-index: -1;
+      }
+      @media (max-width: 600px) {
+        width: 80%;
+      }
+
+      & p {
+        text-align: center;
+        font-size: 28px;
+        line-height: 1.5;
+
+        @media (max-width: 600px) {
+          font-size: 22px;
+        }
+      }
+    }
+
+    & span {
+      color: white;
+
+      & a { 
+        color: white;
+      }
+    }
+
   }
   style button {
     padding: 10px 20px;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 8px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-    margin-top: 30px;
+    margin: 30px;
     background-color: transparent;
     border: 2px solid #2562A1;
     color: #2562A1;
@@ -109,14 +140,15 @@ component Main {
       background-color: #2562A1;
       color: white;
       transition: 0.5s all;
+      cursor: pointer;
     }
   }
 
   fun render : Html {
     <div::base>
       <section::title>
-        <h1::header>"The Good Place"</h1>
-        <h3::subheader>"WITH JASON MENDOZA"</h3>
+        <h1>"The Good Place"</h1>
+        <h3>"WITH JASON MENDOZA"</h3>
         <button::button
           onClick={(event : Html.Event) : Promise(Never,Void) {
             Quotes.load()
@@ -126,16 +158,25 @@ component Main {
       </section>
 
       <section::content>
-
-        <div::quote-container>
+        <div>
           case (status) {
             Status::Initial => <div></div>
-            Status::Loading => <div></div>
-            Status::Error message => <div><{ message }></div>
+            Status::Loading => <p><i>"GO BORTLES!"</i></p>
+            Status::Error message => <p><{ message }></p>
             Status::Ok data => 
-                <p::quote><{ data.quote }></p>
+                <p><{ data.quote }></p>
           }
         </div>
+        <span>
+          "Built with "
+          <a target="_blank" href="https://www.mint-lang.com/">
+            "mint-lang"
+          </a>
+          " | "
+          <a target="_blank" href="https://github.com/kohrongying/jason-mendoza-says">
+            "Github"
+          </a>
+        </span>
       </section>
     </div>
   }
