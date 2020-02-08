@@ -125,7 +125,7 @@ var Mint=function(){"use strict";function e(e){return e&&e.__esModule&&Object.pr
       } else {
         return new Y()
       }
-    })())}});class A extends _C{get c(){return S.g;}componentWillUnmount(){S._unsubscribe(this)}componentDidMount(){S._subscribe(this)}render(){return _h("div", {className:`a`}, [_h("section", {className:`b`}, [_h("h1", {className:`c`}, [`The Good Place`]),_h("h3", {className:`d`}, [`WITH JASON MENDOZA`]),_h("button", {"onClick":(event => (((b)=>{return S.a()}))(_normalizeEvent(event))),className:`h`}, [`SHOW ME ANOTHER`])]),_h("section", {className:`e`}, [_h("div", {className:`f`}, [(()=>{let d = this.c;if(d instanceof T){return _h("div", {})}if(d instanceof U){return _h("div", {})}if(d instanceof V){const e = d._0;return _h("div", {}, [e])}if(d instanceof W){const f = d._0;return _h("p", {className:`g`}, [f.quote])}})()])])])}};;const S=new(class extends _S{constructor(){super();this.state={g:new T(),ap:1,aq:77}}get g(){return this.state.g;}get ap(){return this.state.ap;}get aq(){return this.state.aq;}a(){return (async()=>{let _ = null;try{await new Promise(((_resolve)=>{this.setState(_u(this.state, new Record({g:new U()})), _resolve)
+    })())}});class A extends _C{get c(){return S.g;}componentWillUnmount(){S._unsubscribe(this)}componentDidMount(){S._subscribe(this)}render(){return _h("div", {className:`a`}, [_h("section", {className:`b`}, [_h("h1", {}, [`The Good Place`]),_h("h3", {}, [`WITH JASON MENDOZA`]),_h("button", {"onClick":(event => (((b)=>{return S.a()}))(_normalizeEvent(event))),className:`d`}, [`SHOW ME ANOTHER`])]),_h("section", {className:`c`}, [_h("div", {}, [(()=>{let d = this.c;if(d instanceof T){return _h("div", {})}if(d instanceof U){return _h("p", {}, [_h("i", {}, [`GO BORTLES!`])])}if(d instanceof V){const e = d._0;return _h("p", {}, [e])}if(d instanceof W){const f = d._0;return _h("p", {}, [f.quote])}})()]),_h("span", {}, [`Built with `,_h("a", {"target":`_blank`,"href":`https://www.mint-lang.com/`}, [`mint-lang`]),` | `,_h("a", {"target":`_blank`,"href":`https://github.com/kohrongying/jason-mendoza-says`}, [`Github`])])])])}};;const S=new(class extends _S{constructor(){super();this.state={g:new T(),ap:1,aq:77}}get g(){return this.state.g;}get ap(){return this.state.ap;}get aq(){return this.state.aq;}a(){return (async()=>{let _ = null;try{await new Promise(((_resolve)=>{this.setState(_u(this.state, new Record({g:new U()})), _resolve)
 }));await new Promise(((_resolve)=>{this.setState(_u(this.state, new Record({ap:X.h(1, AK.an(AK.ak(1, this.aq)))})), _resolve)
 }));let ar = await (async()=>{try{return await AF.af(AF.x(`https://cors-anywhere.herokuapp.com/https://jsonbase.com/dIvRREdwzsIJ05DOsUt1ImStp3Gr8LR8/${this.ap}`))}catch(_error){let as = _error;_=new Promise(((_resolve)=>{this.setState(_u(this.state, new Record({g:new V(`Something went wrong`)})), _resolve)
 }));throw new DoError()}})();let _3 = X.m(``, AC.r(ar.body));if(_3 instanceof Err){let _error = _3._0;let au = _error;_=new Promise(((_resolve)=>{this.setState(_u(this.state, new Record({g:new V(`Invalid JSON data`)})), _resolve)
@@ -134,13 +134,10 @@ var Mint=function(){"use strict";function e(e){return e&&e.__esModule&&Object.pr
 }))}catch(_error){if(!(_error instanceof DoError)){console.warn(`Unhandled error in sequence expression:`);console.warn(_error)}};return _})()}});_insertStyles(`
 .a {
   font-family: sans-serif;
-  overflow: hidden;
-  height: 97vh;
 }
 
 .b {
   width: 100vw;
-  height: 60%;
   background-color: #F8BD1B;
   flex-direction: column;
   justify-content: center;
@@ -148,54 +145,87 @@ var Mint=function(){"use strict";function e(e){return e&&e.__esModule&&Object.pr
   display: flex;
 }
 
-.c {
+.b h1 {
   margin-bottom: 0;
   color: #2562A1;
   font-size: 60px;
+  text-align: center;
 }
 
-.d {
+.b h3 {
   margin-top: 10px;
   color: #2562A1;
   letter-spacing: 2px;
 }
 
-.e {
-  height: 40%;
-  justify-content: center;
+.c {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px;
   position: relative;
 }
 
-.f {
+.c div {
   background-color: white;
-  position: absolute;
-  top: -42px;
   border-radius: 50px;
   width: 60%;
+  margin-bottom: 50px;
+  padding: 10px 30px;
 }
 
-.g {
+.c div:before {
+  content: " ";
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  top: -2px;
+  background-color: #F8BD1B;
+  height: 100px;
+  z-index: -1;
+}
+
+.c div p {
   text-align: center;
-  padding: 30px 80px;
-  line-height: 2;
+  font-size: 28px;
+  line-height: 1.5;
 }
 
-.h {
+.c span {
+  color: white;
+}
+
+.c span a {
+  color: white;
+}
+
+.d {
   padding: 10px 20px;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 8px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-  margin-top: 30px;
+  margin: 30px;
   background-color: transparent;
   border: 2px solid #2562A1;
   color: #2562A1;
 }
 
-.h:hover {
+.d:hover {
   background-color: #2562A1;
   color: white;
   transition: 0.5s all;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .c div {
+    width: 80%;
+  }
+
+  .c div p {
+    font-size: 22px;
+  }
 }
 `)
 
